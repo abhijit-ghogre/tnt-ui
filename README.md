@@ -17,4 +17,10 @@ Steps to setup:
   },
 ```
 
+2. Add the following directory to your `content` array in tailwind.config.js
+
+```js
+"./node_modules/tnt-ui-kit/dist/*.{js,ts,jsx,tsx}",
+```
+
 Next steps TBD.

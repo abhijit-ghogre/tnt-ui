@@ -28,14 +28,12 @@ const getVariantClassNames = (variant) => {
 };
 function Button(props) {
     const { children, size = "md", variant = "solid", fit = true, disabled = false, } = props;
-    return (<button className={`
+    return (react_1.default.createElement("button", { className: `
       ${getSizeClassNames(size)} 
       ${getVariantClassNames(variant)}
       block
       ${fit ? "w-fit" : "w-full"}
       disabled:opacity-50
-      `} disabled={disabled}>
-      {children}
-    </button>);
+      `, disabled: disabled }, children));
 }
 exports.default = Button;
