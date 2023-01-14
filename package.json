@@ -1,6 +1,6 @@
 {
   "name": "tnt-ui-kit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A typesafe UI component library for Tailwind and Next.js with local storybook setup",
   "author": "Abhijit Ghogre",
   "repository": {
