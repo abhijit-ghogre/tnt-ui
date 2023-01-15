@@ -8,6 +8,7 @@ interface Props {
   children: ReactNode;
   fit?: boolean;
   disabled?: boolean;
+  className?: string;
 }
 
 const getSizeClassNames = (size: Size) => {
@@ -40,16 +41,18 @@ function Button(props: Props) {
     variant = "solid",
     fit = true,
     disabled = false,
+    className = "",
   } = props;
 
   return (
     <button
       className={`
-      ${getSizeClassNames(size)} 
-      ${getVariantClassNames(variant)}
-      block
-      ${fit ? "w-fit" : "w-full"}
-      disabled:opacity-50
+        block
+        disabled:opacity-50
+        ${getSizeClassNames(size)} 
+        ${getVariantClassNames(variant)}
+        ${fit ? "w-fit" : "w-full"}
+        ${className}
       `}
       disabled={disabled}
     >

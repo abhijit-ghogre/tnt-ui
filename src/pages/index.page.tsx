@@ -1,4 +1,7 @@
 import Head from "next/head";
+import ResponsiveRow from "@/components/ResponsiveRow/ResponsiveRow";
+import Button from "@/components/Button/Button";
+import Text from "@/components/Text/Text";
 
 export default function Home() {
   return (
@@ -9,12 +12,19 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>UI Kit</h1>
-        <div>
-          <button>Yo</button>
-        </div>
-      </main>
+      <div className="space-y-2">
+        <Button>Press me</Button>
+        <ResponsiveRow>
+          <div className="bg-red-500 h-10 flex-[2]">1</div>
+          <div className="bg-green-500 h-10 flex-1">2</div>
+        </ResponsiveRow>
+        <Text size="xs">The quick brown fox jumps over the lazy dog.</Text>
+        <Text size="sm">The quick brown fox jumps over the lazy dog.</Text>
+        <Text>The quick brown fox jumps over the lazy dog.</Text>
+        <Text size="lg">The quick brown fox jumps over the lazy dog.</Text>
+        <Text size="xl">The quick brown fox jumps over the lazy dog.</Text>
+        <Text size="2xl">The quick brown fox jumps over the lazy dog.</Text>
+      </div>
     </>
   );
 }
