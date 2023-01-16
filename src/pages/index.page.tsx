@@ -63,17 +63,20 @@ export default function Home() {
           </select>
         </div>
 
-        <Select
-          instanceId="select"
-          isClearable
-          options={[
-            { value: "Homer", label: "Homer" },
-            { value: "Marge", label: "Marge" },
-            { value: "Bart", label: "Bart" },
-            { value: "Lisa", label: "Lisa" },
-          ]}
-          isMulti
-        />
+        <div className="p-1">
+          <Select
+            instanceId="select"
+            isClearable
+            options={[
+              { value: "Homer", label: "Homer" },
+              { value: "Marge", label: "Marge" },
+              { value: "Bart", label: "Bart" },
+              { value: "Lisa", label: "Lisa" },
+            ]}
+            isMulti
+            menuIsOpen
+          />
+        </div>
       </div>
     </>
   );
