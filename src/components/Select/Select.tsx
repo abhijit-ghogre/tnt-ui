@@ -27,7 +27,8 @@ function Select(props: Props) {
         control: () => "select select-bordered",
         noOptionsMessage: () => "p-4",
         clearIndicator: () => "cursor-pointer",
-        multiValue: () => "badge",
+        multiValue: () => "badge gap-1",
+        valueContainer: () => "gap-1",
       }}
     />
   );
