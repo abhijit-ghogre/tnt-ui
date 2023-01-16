@@ -15,6 +15,7 @@
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "prettier/prettier": "error",
     "no-console": "error",
+    "react/no-array-index-key": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "error",

@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import ResponsiveRow from "../components/ResponsiveRow/ResponsiveRow";
 
 export default {
-  title: "Layout/ResponsiveRow",
+  title: "ResponsiveRow",
   component: ResponsiveRow,
   argTypes: {
     numberOfChildren: {

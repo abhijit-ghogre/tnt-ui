@@ -37,29 +37,20 @@ Additional Components and Utilities:
 
 Form:
 -[X] Button Radio
--[ ] Select
+-[X] Select
 
 Layout:
 -[X] ResponsiveRow
 -[X] Text
 
 Components:
--[ ] Tabs
--[ ] Card
--[ ] Divider
--[ ] Modal
--[ ] Tooltip
--[ ] Sidebar
--[ ] Header
--[ ] AlertBar
--[ ] Badge
--[ ] TntImage
--[ ] Accordion
--[ ] Breadcrumb
+-[X] Modal
+-[X] Drawer
+-[X] Collapse/Accordion
+-[X] WittySpinner
 -[ ] Carousal
 -[ ] Table
 -[ ] Progress
--[ ] WittySpinner
 -[ ] Toast
 -[ ] QuantityStepper
 -[ ] Pagination
