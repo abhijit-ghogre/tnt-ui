@@ -3,14 +3,12 @@ import Link from "next/link";
 
 type Size = "sm" | "xs" | "base" | "lg" | "xl" | "2xl";
 type Weight = "light" | "normal" | "bold";
-type Color = "primary" | "secondary" | "tertiary";
 
 interface Props {
   children: React.ReactNode;
   size?: Size;
   weight?: Weight;
   link?: string;
-  color?: Color;
   className?: string;
   target?: "_blank" | "_self";
 }
@@ -63,18 +61,6 @@ const getTextWeightClassNames = (weight: Weight) => {
   }
 };
 
-const getTextColorClassNames = (color: Color) => {
-  switch (color) {
-    case "secondary":
-      return "text-secondary";
-    case "tertiary":
-      return "text-tertiary";
-    case "primary":
-    default:
-      return "text-primary";
-  }
-};
-
 function Text(props: Props) {
   const {
     children,
@@ -83,12 +69,10 @@ function Text(props: Props) {
     weight = "normal",
     link = "",
     target = "_self",
-    color = "primary",
   } = props;
   const TagName = getTagName(size);
 
   const commonClasses = `
-        ${getTextColorClassNames(color)}
         ${getTextSizeClassNames(size)}
         ${getTextWeightClassNames(weight)}
   `;
@@ -97,7 +81,7 @@ function Text(props: Props) {
     return (
       <Link
         href={link}
-        className={`${commonClasses} underline ${className}`}
+        className={`${commonClasses} link ${className}`}
         target={target}
       >
         {children}

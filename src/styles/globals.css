@@ -7,3 +7,10 @@ html, body {
     font-family: Raleway, sans-serif;
 }
 
+.btn-group.separate > .btn {
+    border-radius: var(--rounded-btn) !important;
+}
+
+.btn-group.separate-pills > .btn {
+    border-radius: 9999px !important;
+}

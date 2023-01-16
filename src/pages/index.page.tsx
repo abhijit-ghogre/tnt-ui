@@ -1,7 +1,7 @@
 import Head from "next/head";
 import ResponsiveRow from "@/components/ResponsiveRow/ResponsiveRow";
-import Button from "@/components/Button/Button";
 import Text from "@/components/Text/Text";
+import Select from "@/components/Select/Select";
 
 export default function Home() {
   return (
@@ -12,18 +12,68 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="space-y-2">
-        <Button>Press me</Button>
+      <div className="space-y-8">
+        <button className="btn rounded-full">Press me</button>
+
         <ResponsiveRow>
-          <div className="bg-red-500 h-10 flex-[2]">1</div>
-          <div className="bg-green-500 h-10 flex-1">2</div>
+          <div className="bg-primary h-10 flex-[2]">1</div>
+          <div className="bg-secondary h-10 flex-1">2</div>
+          <div className="bg-accent h-10 flex-1">2</div>
         </ResponsiveRow>
-        <Text size="xs">The quick brown fox jumps over the lazy dog.</Text>
-        <Text size="sm">The quick brown fox jumps over the lazy dog.</Text>
-        <Text>The quick brown fox jumps over the lazy dog.</Text>
-        <Text size="lg">The quick brown fox jumps over the lazy dog.</Text>
-        <Text size="xl">The quick brown fox jumps over the lazy dog.</Text>
-        <Text size="2xl">The quick brown fox jumps over the lazy dog.</Text>
+
+        <div>
+          <Text size="xs">The quick brown fox jumps over the lazy dog.</Text>
+          <Text size="sm">The quick brown fox jumps over the lazy dog.</Text>
+          <Text>The quick brown fox jumps over the lazy dog.</Text>
+          <Text size="lg">The quick brown fox jumps over the lazy dog.</Text>
+          <Text size="xl">The quick brown fox jumps over the lazy dog.</Text>
+          <Text size="2xl">The quick brown fox jumps over the lazy dog.</Text>
+        </div>
+
+        <div className="btn-group gap-4 separate-pills">
+          <input type="radio" name="options" data-title="Red" className="btn" />
+          <input
+            type="radio"
+            name="options"
+            data-title="Green"
+            className="btn"
+          />
+          <input
+            type="radio"
+            name="options"
+            data-title="Magenta"
+            className="btn"
+          />
+          <input
+            type="radio"
+            name="options"
+            data-title="Onometopoea"
+            className="btn"
+          />
+        </div>
+
+        <div>
+          <select className="select select-bordered">
+            <option>Pick your favorite Simpson</option>
+            <option>Homer</option>
+            <option>Marge</option>
+            <option>Bart</option>
+            <option>Lisa</option>
+            <option>Maggie</option>
+          </select>
+        </div>
+
+        <Select
+          instanceId="select"
+          isClearable
+          options={[
+            { value: "Homer", label: "Homer" },
+            { value: "Marge", label: "Marge" },
+            { value: "Bart", label: "Bart" },
+            { value: "Lisa", label: "Lisa" },
+          ]}
+          isMulti
+        />
       </div>
     </>
   );

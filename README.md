@@ -1,21 +1,9 @@
-A typesafe UI library for Tailwind CSS and Next.js
+A typesafe UI library for Tailwind CSS and Next.js built on top of DaisyUI
 
 ---
-Steps to setup:
+Steps to set-up:
 
-1. Add this config to your tailwind.config.js file. You choose your theme colors.
-
-```js
- theme: {
-    extend: {
-      colors: {
-        primary:"#1f2937",
-        secondary:"#f9fafb",
-        tertiary:"#9ca3af",
-      }
-    },
-  },
-```
+1. Follow DaisyUI docs to set-up a theme
 
 2. Add the following directory to your `content` array in tailwind.config.js
 
@@ -23,7 +11,7 @@ Steps to setup:
 "./node_modules/tnt-ui-kit/dist/*.{js,ts,jsx,tsx}",
 ```
 
-3. Add your font in `_app.tsx` file like this:
+3. Add your font in `_app.tsx` file like this for adding fonts:
 
 ```js
 import "@/styles/globals.css";
@@ -45,17 +33,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ---
 
-Components Progress:
+Additional Components and Utilities:
 
 Form:
--[X] Button
--[ ] Input
--[ ] Radio
--[ ] Checkbox
--[ ] Button Radio
--[ ] Switch
+-[X] Button Radio
 -[ ] Select
--[ ] Range
 
 Layout:
 -[X] ResponsiveRow
