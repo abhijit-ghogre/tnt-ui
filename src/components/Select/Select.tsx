@@ -10,26 +10,25 @@ function Select(props: Props) {
         DropdownIndicator: () => null,
         // eslint-disable-next-line react/no-unstable-nested-components
         MenuList: ({ innerProps, children }) => (
-          <menu {...innerProps}>
+          <div {...innerProps}>
             <ul className="menu bg-base-300 border border-gray-300 border-opacity-20 rounded-box overflow-hidden">
               {children}
             </ul>
-          </menu>
+          </div>
         ),
         // eslint-disable-next-line react/no-unstable-nested-components
         Option: ({ innerProps, children, isSelected, isFocused }) => (
-          <menu {...innerProps}>
-            <li>
-              <div
-                className={`
+          <li>
+            <div
+              {...innerProps}
+              className={`
                 ${isSelected ? "active" : ""} 
                 ${isFocused && !isSelected ? "bg-base-100" : ""}
               `}
-              >
-                {children}
-              </div>
-            </li>
-          </menu>
+            >
+              {children}
+            </div>
+          </li>
         ),
       }}
       classNames={{
