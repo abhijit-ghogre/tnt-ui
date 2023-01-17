@@ -8,6 +8,7 @@ import ConfirmationModal from "@/components/ConfirmationModal/ConfirmationModal"
 import Drawer from "@/components/Drawer/Drawer";
 import Collapse from "@/components/Collapse/Collapse";
 import WittySpinner from "@/components/WittySpinner/WittySpinner";
+import QuantityStepper from "@/components/QuantityStepper/QuantityStepper";
 
 export default function Home() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -16,6 +17,7 @@ export default function Home() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [accordionIndex, setAccordionIndex] = useState<null | number>(null);
+  const [quantity, setQuantity] = useState<number>(0);
   return (
     <>
       <Head>
@@ -160,6 +162,14 @@ export default function Home() {
           <button className="btn" onClick={() => setIsDrawerVisible(true)}>
             Open drawer
           </button>
+        </div>
+
+        <div className="p-4">
+          <QuantityStepper
+            onIncrement={() => setQuantity(quantity + 1)}
+            onDecrement={() => quantity > 0 && setQuantity(quantity - 1)}
+            initialValue={quantity}
+          />
         </div>
       </Drawer>
     </>
