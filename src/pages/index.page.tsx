@@ -8,6 +8,7 @@ import ConfirmationModal from "@/components/ConfirmationModal/ConfirmationModal"
 import Drawer from "@/components/Drawer/Drawer";
 import Collapse from "@/components/Collapse/Collapse";
 import WittySpinner from "@/components/WittySpinner/WittySpinner";
+import VideoViewer from "@/components/VideoViewer/VideoViewer";
 
 export default function Home() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -160,6 +161,10 @@ export default function Home() {
           <button className="btn" onClick={() => setIsDrawerVisible(true)}>
             Open drawer
           </button>
+
+          <div>
+            <VideoViewer url="https://youtu.be/uC9VtVnuPD0" />
+          </div>
         </div>
       </Drawer>
     </>
