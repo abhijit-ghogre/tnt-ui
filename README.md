@@ -37,24 +37,24 @@ Additional Components and Utilities:
 
 Form:
 
--[X] Button Radio
--[X] Select
+- [X] Button Radio
+- [X] Select
 
 Layout:
 
--[X] ResponsiveRow
--[X] Text
+- [X] ResponsiveRow
+- [X] Text
 
 Components:
 
--[X] Modal
--[X] Drawer
--[X] Collapse/Accordion
--[X] WittySpinner
--[ ] Carousal
--[ ] Table
--[ ] Progress
--[ ] Toast
--[ ] QuantityStepper
--[ ] Pagination
--[ ] YT Video
+- [X] Modal
+- [X] Drawer
+- [X] Collapse/Accordion
+- [X] WittySpinner
+- [ ] Carousal
+- [ ] Table
+- [ ] Progress
+- [ ] Toast
+- [ ] QuantityStepper
+- [ ] Pagination
+- [ ] YT Video
