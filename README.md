@@ -36,14 +36,17 @@ export default function App({ Component, pageProps }: AppProps) {
 Additional Components and Utilities:
 
 Form:
+
 -[X] Button Radio
 -[X] Select
 
 Layout:
+
 -[X] ResponsiveRow
 -[X] Text
 
 Components:
+
 -[X] Modal
 -[X] Drawer
 -[X] Collapse/Accordion
