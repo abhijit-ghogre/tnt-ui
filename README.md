@@ -38,7 +38,7 @@ Additional Components and Utilities:
 Form:
 
 - [X] Button Radio
-- [X] Select
+- [X] Select (react-select based)
 
 Layout:
 
