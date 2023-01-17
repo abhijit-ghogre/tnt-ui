@@ -163,7 +163,7 @@ export default function Home() {
           </button>
 
           <div>
-            <VideoViewer url="https://youtu.be/uC9VtVnuPD0" />
+            <VideoViewer url="https://www.youtube.com/embed?v=ckiaNqOrG5U" />
           </div>
         </div>
       </Drawer>

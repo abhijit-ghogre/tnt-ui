@@ -8,6 +8,7 @@ function VideoViewer(props: Props) {
   const { url, className } = props;
   return (
     <iframe
+      id="asdasd"
       className={`${className}`}
       width="100%"
       height="480"
