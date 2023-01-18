@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { useState } from "react";
 import Slider from "../components/Slider/Slider";
 
 export default {
@@ -6,9 +7,16 @@ export default {
   component: Slider,
 } as ComponentMeta<typeof Slider>;
 
-export const Default: ComponentStory<typeof Slider> = (args) => (
-  <Slider {...args} />
-);
+export const Default: ComponentStory<typeof Slider> = (args) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  return (
+    <Slider
+      {...args}
+      currentSlide={currentSlide}
+      onSlideChange={setCurrentSlide}
+    />
+  );
+};
 
 Default.args = {
   children: [
@@ -22,4 +30,9 @@ Default.args = {
       3
     </div>,
   ],
+  autoAnimate: true,
+  animateInterval: 5000,
+  transitionDuration: 0.5,
+  ease: "easeInOut",
+  areDotsVisible: true,
 };
