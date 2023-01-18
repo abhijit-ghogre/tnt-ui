@@ -19,6 +19,9 @@ export default function Home() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [accordionIndex, setAccordionIndex] = useState<null | number>(null);
   const [quantity, setQuantity] = useState<number>(0);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   return (
     <>
       <Head>
@@ -40,7 +43,7 @@ export default function Home() {
             value={quantity}
           />
 
-          <Slider>
+          <Slider currentSlide={currentSlide} onSlideChange={setCurrentSlide}>
             <div className="bg-red-500 h-40 w-full">1</div>
             <div className="bg-red-500 h-40 w-40">2</div>
             <div className="bg-red-500 h-40 w-40">3</div>
