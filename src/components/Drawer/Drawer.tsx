@@ -23,7 +23,12 @@ function Drawer(props: Props) {
         ${end ? "drawer-end" : ""} 
     `}
     >
-      <input type="checkbox" className="drawer-toggle" checked={isVisible} />
+      <input
+        type="checkbox"
+        className="drawer-toggle"
+        checked={isVisible}
+        readOnly
+      />
       <div className="drawer-content">{children}</div>
       <div className="drawer-side">
         <div
