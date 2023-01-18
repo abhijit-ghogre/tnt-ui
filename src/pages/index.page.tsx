@@ -8,6 +8,7 @@ import ConfirmationModal from "@/components/ConfirmationModal/ConfirmationModal"
 import Drawer from "@/components/Drawer/Drawer";
 import Collapse from "@/components/Collapse/Collapse";
 import WittySpinner from "@/components/WittySpinner/WittySpinner";
+import QuantityStepper from "@/components/QuantityStepper/QuantityStepper";
 import Slider from "@/components/Slider/Slider";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [accordionIndex, setAccordionIndex] = useState<null | number>(null);
+  const [quantity, setQuantity] = useState<number>(0);
   return (
     <>
       <Head>
@@ -31,6 +33,15 @@ export default function Home() {
         onOverlayClick={() => setIsDrawerVisible(false)}
       >
         <div className="space-y-8 p-2">
+          <QuantityStepper
+            onIncrement={() => setQuantity(quantity + 1)}
+            onDecrement={() => quantity > 0 && setQuantity(quantity - 1)}
+            onChange={(value) => {
+              setQuantity(value);
+            }}
+            value={quantity}
+          />
+
           <Slider>
             <div className="bg-red-500 h-40 w-full">1</div>
             <div className="bg-red-500 h-40 w-40">2</div>
