@@ -8,6 +8,7 @@ interface Props {
   onChange: (value: number) => void;
   min?: number;
   max?: number;
+  className?: string;
 }
 
 function QuantityStepper(props: Props) {
@@ -18,6 +19,7 @@ function QuantityStepper(props: Props) {
     onChange,
     min = 0,
     max = 999999999999999,
+    className = "",
   } = props;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +42,7 @@ function QuantityStepper(props: Props) {
   };
 
   return (
-    <div className="flex border w-fit">
+    <div className={`flex border w-fit overflow-hidden ${className}`}>
       <button
         className="btn btn-ghost no-animation rounded-r-none"
         onClick={() => onDecrement()}
@@ -56,8 +58,9 @@ function QuantityStepper(props: Props) {
         size={value.toString().length + 4}
         value={value}
         onFocus={(e) => e.target.select()}
-        onKeyUp={(e) => {
+        onKeyDown={(e) => {
           if (e.key === "ArrowUp") {
+            e.preventDefault();
             onIncrement();
           }
           if (e.key === "ArrowDown") {
