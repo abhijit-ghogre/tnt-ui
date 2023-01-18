@@ -8,6 +8,7 @@ import ConfirmationModal from "@/components/ConfirmationModal/ConfirmationModal"
 import Drawer from "@/components/Drawer/Drawer";
 import Collapse from "@/components/Collapse/Collapse";
 import WittySpinner from "@/components/WittySpinner/WittySpinner";
+import Slider from "@/components/Slider/Slider";
 
 export default function Home() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -30,6 +31,20 @@ export default function Home() {
         onOverlayClick={() => setIsDrawerVisible(false)}
       >
         <div className="space-y-8 p-2">
+          <Slider>
+            <div className="bg-red-500 h-40 w-full">1</div>
+            <div className="bg-red-500 h-40 w-40">2</div>
+            <div className="bg-red-500 h-40 w-40">3</div>
+            <div className="bg-red-500 h-40 w-40">4</div>
+            <div className="bg-red-500 h-40 w-40">5</div>
+            <div className="bg-red-500 h-40 w-40">6</div>
+            <div className="bg-red-500 h-40 w-40">7</div>
+            <div className="bg-red-500 h-40 w-40">8</div>
+            <div className="bg-red-500 h-40 w-40">9</div>
+            <div className="bg-red-500 h-40 w-40">10</div>
+            <div className="bg-red-500 h-40 w-40">11</div>
+          </Slider>
+
           <button className="btn rounded-full">Press me</button>
 
           <WittySpinner isLoading />
