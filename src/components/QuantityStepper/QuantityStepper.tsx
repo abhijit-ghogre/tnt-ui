@@ -1,86 +1,79 @@
 import React from "react";
+import { MdAdd, MdRemove } from "react-icons/md";
 
 interface Props {
-  size?: Sizes;
-  variant?: Variants;
-  initialValue: number;
-  onIncrement: React.MouseEventHandler<HTMLButtonElement>;
-  onDecrement: React.MouseEventHandler<HTMLButtonElement>;
+  value: number;
+  onIncrement: () => void;
+  onDecrement: () => void;
+  onChange: (value: number) => void;
+  min?: number;
+  max?: number;
 }
 
-type Sizes = "xs" | "sm" | "md";
-type Variants = "ghost" | "solid";
-const getInputSizes = (size: Sizes) => {
-  switch (size) {
-    case "xs":
-      return "input-xs";
-    case "md":
-      return "input-md";
-    case "sm":
-    default:
-      return "input-sm";
-  }
-};
-
-const getButtonSizes = (size: Sizes) => {
-  switch (size) {
-    case "xs":
-      return "btn-xs";
-    case "md":
-      return "btn-md";
-    case "sm":
-    default:
-      return "btn-sm";
-  }
-};
-
-const getVariantClassNames = (variant: Variants) => {
-  switch (variant) {
-    case "ghost":
-      return "input input-ghost input-bordered";
-    case "solid":
-    default:
-      return "input";
-  }
-};
 function QuantityStepper(props: Props) {
   const {
-    size = "sm",
-    variant = "ghost",
-    initialValue,
+    value,
     onIncrement,
     onDecrement,
+    onChange,
+    min = 0,
+    max = 999999999999999,
   } = props;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === "") {
+      onChange(0);
+      return;
+    }
+
+    const inputValue = parseInt(e.target.value, 10);
+
+    if (Number.isNaN(inputValue)) {
+      return;
+    }
+
+    if (inputValue < min || inputValue > max) {
+      return;
+    }
+
+    onChange(inputValue);
+  };
+
   return (
-    <div className="flex items-center relative w-fit">
+    <div className="flex border w-fit">
       <button
-        className={`btn btn-ghost btn-square absolute top-0 left-0 hover:bg-transparent ${getButtonSizes(
-          size
-        )}`}
-        onClick={onDecrement}
+        className="btn btn-ghost no-animation rounded-r-none"
+        onClick={() => onDecrement()}
+        disabled={value <= min}
       >
-        -
+        <MdRemove />
       </button>
       <input
-        className={`text-center w-full rounded-none focus:bg-transparent focus:outline-none ${getInputSizes(
-          size
-        )}  ${getVariantClassNames(variant)}`}
-        value={initialValue}
+        onChange={handleChange}
+        type="text"
+        placeholder="10"
+        className="input focus:bg-transparent text-center px-1 rounded-none"
+        size={value.toString().length + 4}
+        value={value}
+        onFocus={(e) => e.target.select()}
+        onKeyUp={(e) => {
+          if (e.key === "ArrowUp") {
+            onIncrement();
+          }
+          if (e.key === "ArrowDown") {
+            onDecrement();
+          }
+        }}
       />
       <button
-        className={`btn btn-ghost absolute top-0 right-0 hover:bg-transparent ${getButtonSizes(
-          size
-        )}`}
-        onClick={onIncrement}
+        className="btn btn-ghost no-animation rounded-l-none"
+        onClick={() => onIncrement()}
+        disabled={value >= max}
       >
-        +
+        <MdAdd />
       </button>
     </div>
   );
 }
 
-QuantityStepper.defaultProps = {
-  size: "sm",
-  variant: "ghost",
-};
 export default QuantityStepper;

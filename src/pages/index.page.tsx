@@ -33,6 +33,15 @@ export default function Home() {
         onOverlayClick={() => setIsDrawerVisible(false)}
       >
         <div className="space-y-8 p-2">
+          <QuantityStepper
+            onIncrement={() => setQuantity(quantity + 1)}
+            onDecrement={() => quantity > 0 && setQuantity(quantity - 1)}
+            onChange={(value) => {
+              setQuantity(value);
+            }}
+            value={quantity}
+          />
+
           <Slider>
             <div className="bg-red-500 h-40 w-full">1</div>
             <div className="bg-red-500 h-40 w-40">2</div>
@@ -177,14 +186,6 @@ export default function Home() {
           <button className="btn" onClick={() => setIsDrawerVisible(true)}>
             Open drawer
           </button>
-        </div>
-
-        <div className="p-4">
-          <QuantityStepper
-            onIncrement={() => setQuantity(quantity + 1)}
-            onDecrement={() => quantity > 0 && setQuantity(quantity - 1)}
-            initialValue={quantity}
-          />
         </div>
       </Drawer>
     </>
