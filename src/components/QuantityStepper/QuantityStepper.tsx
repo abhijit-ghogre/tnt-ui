@@ -3,8 +3,6 @@ import { MdAdd, MdRemove } from "react-icons/md";
 
 interface Props {
   value: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
   onChange: (value: number) => void;
   min?: number;
   max?: number;
@@ -14,21 +12,19 @@ interface Props {
 function QuantityStepper(props: Props) {
   const {
     value,
-    onIncrement,
-    onDecrement,
     onChange,
     min = 0,
     max = 999999999999999,
     className = "",
   } = props;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "") {
+  const handleChange = (newValue: string) => {
+    if (newValue === "") {
       onChange(0);
       return;
     }
 
-    const inputValue = parseInt(e.target.value, 10);
+    const inputValue = parseInt(newValue, 10);
 
     if (Number.isNaN(inputValue)) {
       return;
@@ -45,13 +41,13 @@ function QuantityStepper(props: Props) {
     <div className={`flex border w-fit overflow-hidden ${className}`}>
       <button
         className="btn btn-ghost no-animation rounded-r-none"
-        onClick={() => onDecrement()}
+        onClick={() => handleChange(`${value - 1}`)}
         disabled={value <= min}
       >
         <MdRemove />
       </button>
       <input
-        onChange={handleChange}
+        onChange={(e) => handleChange(e.target.value)}
         type="text"
         placeholder="10"
         className="input focus:bg-transparent text-center px-1 rounded-none"
@@ -61,16 +57,17 @@ function QuantityStepper(props: Props) {
         onKeyDown={(e) => {
           if (e.key === "ArrowUp") {
             e.preventDefault();
-            onIncrement();
+            handleChange(`${value + 1}`);
           }
           if (e.key === "ArrowDown") {
-            onDecrement();
+            e.preventDefault();
+            handleChange(`${value - 1}`);
           }
         }}
       />
       <button
         className="btn btn-ghost no-animation rounded-l-none"
-        onClick={() => onIncrement()}
+        onClick={() => handleChange(`${value + 1}`)}
         disabled={value >= max}
       >
         <MdAdd />

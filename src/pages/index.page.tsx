@@ -34,8 +34,6 @@ export default function Home() {
       >
         <div className="space-y-8 p-2">
           <QuantityStepper
-            onIncrement={() => setQuantity(quantity + 1)}
-            onDecrement={() => quantity > 0 && setQuantity(quantity - 1)}
             onChange={(value) => {
               setQuantity(value);
             }}
