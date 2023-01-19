@@ -10,6 +10,7 @@ import Collapse from "@/components/Collapse/Collapse";
 import WittySpinner from "@/components/WittySpinner/WittySpinner";
 import QuantityStepper from "@/components/QuantityStepper/QuantityStepper";
 import Slider from "@/components/Slider/Slider";
+import VideoViewer from "@/components/VideoViewer/VideoViewer";
 
 export default function Home() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -187,6 +188,10 @@ export default function Home() {
           <button className="btn" onClick={() => setIsDrawerVisible(true)}>
             Open drawer
           </button>
+
+          <div>
+            <VideoViewer url="https://www.youtube.com/embed?v=ckiaNqOrG5U" />
+          </div>
         </div>
       </Drawer>
     </>
