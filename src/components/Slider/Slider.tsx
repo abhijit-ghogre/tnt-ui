@@ -63,15 +63,20 @@ function Slider(props: Props) {
         <>
           <button
             className="btn btn-circle absolute top-1/3 left-1 z-10"
-            onClick={() => currentSlide > 0 && onSlideChange(currentSlide - 1)}
+            onClick={() =>
+              currentSlide > 0
+                ? onSlideChange(currentSlide - 1)
+                : onSlideChange(React.Children.count(children) - 1)
+            }
           >
             {leftIcon}
           </button>
           <button
             className="btn btn-circle absolute top-1/3 right-1 z-10"
             onClick={() =>
-              currentSlide < React.Children.count(children) - 1 &&
-              onSlideChange(currentSlide + 1)
+              currentSlide < React.Children.count(children) - 1
+                ? onSlideChange(currentSlide + 1)
+                : onSlideChange(0)
             }
           >
             {rightIcon}
@@ -129,15 +134,20 @@ function Slider(props: Props) {
       {areBottomSlideCountVisible && (
         <div className="border-b py-4 flex gap-2 items-center justify-center">
           <button
-            onClick={() => currentSlide > 0 && onSlideChange(currentSlide - 1)}
+            onClick={() =>
+              currentSlide > 0
+                ? onSlideChange(currentSlide - 1)
+                : onSlideChange(React.Children.count(children) - 1)
+            }
           >
             {leftIcon}
           </button>
           {`${currentSlide + 1}/${React.Children.count(children)}`}
           <button
             onClick={() =>
-              currentSlide < React.Children.count(children) - 1 &&
-              onSlideChange(currentSlide + 1)
+              currentSlide < React.Children.count(children) - 1
+                ? onSlideChange(currentSlide + 1)
+                : onSlideChange(0)
             }
           >
             {rightIcon}
