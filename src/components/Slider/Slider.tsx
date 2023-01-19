@@ -1,5 +1,6 @@
 import { EasingDefinition, motion, useAnimationControls } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 interface Props {
   children: React.ReactNode;
@@ -10,6 +11,10 @@ interface Props {
   transitionDuration?: number;
   ease?: EasingDefinition;
   areDotsVisible?: boolean;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+  areArrowsVisible?: boolean;
+  areBottomSlideCountVisible?: boolean;
 }
 
 function Slider(props: Props) {
@@ -22,6 +27,10 @@ function Slider(props: Props) {
     transitionDuration = 0.5,
     ease = "easeInOut",
     areDotsVisible = true,
+    leftIcon = <AiOutlineLeft />,
+    rightIcon = <AiOutlineRight />,
+    areArrowsVisible = true,
+    areBottomSlideCountVisible = false,
   } = props;
   const controls = useAnimationControls();
   const [resetFlip, setResetFlip] = useState(false);
@@ -49,7 +58,26 @@ function Slider(props: Props) {
   }, [autoAnimate, currentSlide, animateInterval, children, onSlideChange]);
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden box-border relative">
+      {areArrowsVisible && (
+        <>
+          <button
+            className="btn btn-circle absolute top-1/3 left-1 z-10"
+            onClick={() => currentSlide > 0 && onSlideChange(currentSlide - 1)}
+          >
+            {leftIcon}
+          </button>
+          <button
+            className="btn btn-circle absolute top-1/3 right-1 z-10"
+            onClick={() =>
+              currentSlide < React.Children.count(children) - 1 &&
+              onSlideChange(currentSlide + 1)
+            }
+          >
+            {rightIcon}
+          </button>
+        </>
+      )}
       <motion.div
         className="flex w-full"
         animate={controls}
@@ -96,6 +124,24 @@ function Slider(props: Props) {
               />
             </button>
           ))}
+        </div>
+      )}
+      {areBottomSlideCountVisible && (
+        <div className="border-b py-4 flex gap-2 items-center justify-center">
+          <button
+            onClick={() => currentSlide > 0 && onSlideChange(currentSlide - 1)}
+          >
+            {leftIcon}
+          </button>
+          {`${currentSlide + 1}/${React.Children.count(children)}`}
+          <button
+            onClick={() =>
+              currentSlide < React.Children.count(children) - 1 &&
+              onSlideChange(currentSlide + 1)
+            }
+          >
+            {rightIcon}
+          </button>
         </div>
       )}
     </div>

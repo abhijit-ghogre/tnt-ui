@@ -43,7 +43,11 @@ export default function Home() {
             value={quantity}
           />
 
-          <Slider currentSlide={currentSlide} onSlideChange={setCurrentSlide}>
+          <Slider
+            currentSlide={currentSlide}
+            onSlideChange={setCurrentSlide}
+            autoAnimate={false}
+          >
             <div className="bg-red-500 h-40 w-full">1</div>
             <div className="bg-red-500 h-40 w-40">2</div>
             <div className="bg-red-500 h-40 w-40">3</div>
