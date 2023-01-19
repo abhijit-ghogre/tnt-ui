@@ -47,6 +47,8 @@ export default function Home() {
             currentSlide={currentSlide}
             onSlideChange={setCurrentSlide}
             autoAnimate={false}
+            isSlideCountVisible
+            rightIcon="Custom right"
           >
             <div className="bg-red-500 h-40 w-full">1</div>
             <div className="bg-red-500 h-40 w-40">2</div>
