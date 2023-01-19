@@ -1,15 +1,15 @@
 import Head from "next/head";
-import ResponsiveRow from "@/components/ResponsiveRow/ResponsiveRow";
-import Text from "@/components/Text/Text";
-import Select from "@/components/Select/Select";
-import Modal from "@/components/Modal/Modal";
 import { useState } from "react";
-import ConfirmationModal from "@/components/ConfirmationModal/ConfirmationModal";
-import Drawer from "@/components/Drawer/Drawer";
-import Collapse from "@/components/Collapse/Collapse";
-import WittySpinner from "@/components/WittySpinner/WittySpinner";
-import QuantityStepper from "@/components/QuantityStepper/QuantityStepper";
-import Slider from "@/components/Slider/Slider";
+import ResponsiveRow from "../components/ResponsiveRow/ResponsiveRow";
+import Text from "../components/Text/Text";
+import Select from "../components/Select/Select";
+import Modal from "../components/Modal/Modal";
+import ConfirmationModal from "../components/ConfirmationModal/ConfirmationModal";
+import Drawer from "../components/Drawer/Drawer";
+import Collapse from "../components/Collapse/Collapse";
+import WittySpinner from "../components/WittySpinner/WittySpinner";
+import QuantityStepper from "../components/QuantityStepper/QuantityStepper";
+import Slider from "../components/Slider/Slider";
 
 export default function Home() {
   const [isModalVisible, setIsModalVisible] = useState(false);

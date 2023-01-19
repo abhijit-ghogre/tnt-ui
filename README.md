@@ -14,7 +14,7 @@ Steps to set-up:
 3. Add your font in `_app.tsx` file like this for adding fonts:
 
 ```js
-import "@/styles/globals.css";
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Raleway } from "@next/font/google";
 

@@ -1,7 +1,7 @@
 import { EasingDefinition, motion, useAnimationControls } from "framer-motion";
 import React, { ReactNode, useEffect, useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import Text from "@/components/Text/Text";
+import Text from "../Text/Text";
 
 interface Props {
   children: React.ReactNode;
