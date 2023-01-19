@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CgSpinner } from "react-icons/cg";
-import Text from "@/components/Text/Text";
 import { AnimatePresence, motion } from "framer-motion";
+import Text from "../Text/Text";
 
 const messages = [
   "Order a pizza. Its on us...",

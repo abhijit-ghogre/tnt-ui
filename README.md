@@ -51,10 +51,10 @@ Components:
 - [X] Drawer
 - [X] Collapse/Accordion
 - [X] WittySpinner
+- [X] QuantityStepper
 - [ ] Carousal
 - [ ] Table
 - [ ] Progress
 - [ ] Toast
-- [ ] QuantityStepper
 - [ ] Pagination
 - [ ] YT Video

@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { RxCaretDown } from "react-icons/rx";
-import Text from "@/components/Text/Text";
+import Text from "../Text/Text";
 
 interface Props {
   children: React.ReactNode;
