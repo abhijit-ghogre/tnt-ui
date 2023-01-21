@@ -1,14 +1,14 @@
 A typesafe UI library for Tailwind CSS and Next.js built on top of DaisyUI
 
 ---
-Steps to set-up:
+Steps to set up:
 
-1. Follow DaisyUI docs to set-up a theme
+1. Follow DaisyUI docs to set up a theme
 
 2. Add the following directory to your `content` array in tailwind.config.js
 
 ```js
-"./node_modules/tnt-ui-kit/dist/*.{js,ts,jsx,tsx}",
+"./node_modules/tnt-ui-kit/*.{js,ts,jsx,tsx}",
 ```
 
 3. Add your font in `_app.tsx` file like this for adding fonts:
@@ -52,9 +52,5 @@ Components:
 - [X] Collapse/Accordion
 - [X] WittySpinner
 - [X] QuantityStepper
-- [ ] Carousal
-- [ ] Table
-- [ ] Progress
-- [ ] Toast
-- [ ] Pagination
+- [X] Carousal
 - [ ] YT Video
