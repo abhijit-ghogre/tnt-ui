@@ -2,7 +2,7 @@ import React from "react";
 interface Props {
     isVisible: boolean;
     onOverlayClick?: () => void;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     sideContent: React.ReactNode;
     end?: boolean;
 }

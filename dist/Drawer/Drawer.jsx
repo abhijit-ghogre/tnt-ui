@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 function Drawer(props) {
-    const { isVisible, onOverlayClick, children, sideContent, end = false, } = props;
+    const { isVisible, onOverlayClick, children = null, sideContent, end = false, } = props;
     return (<div className={`
         drawer fixed top-0 left-0 w-full h-full
         ${end ? "drawer-end" : ""} 
