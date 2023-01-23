@@ -1,5 +1,5 @@
 import { EasingDefinition } from "framer-motion";
-import React from "react";
+import React, { ReactNode } from "react";
 interface Props {
     children: React.ReactNode;
     currentSlide: number;
@@ -9,6 +9,10 @@ interface Props {
     transitionDuration?: number;
     ease?: EasingDefinition;
     areDotsVisible?: boolean;
+    leftIcon?: ReactNode;
+    rightIcon?: ReactNode;
+    areArrowsVisible?: boolean;
+    isSlideCountVisible?: boolean;
 }
 declare function Slider(props: Props): JSX.Element;
 export default Slider;

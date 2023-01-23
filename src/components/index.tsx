@@ -8,8 +8,10 @@ import Select from "./Select/Select";
 import Slider from "./Slider/Slider";
 import WittySpinner from "./WittySpinner/WittySpinner";
 import Text from "./Text/Text";
+import Card from "./Card/Card";
 
 export {
+  Card,
   Collapse,
   ConfirmationModal,
   Drawer,

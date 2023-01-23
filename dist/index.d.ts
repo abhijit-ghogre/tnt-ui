@@ -8,4 +8,5 @@ import Select from "./Select/Select";
 import Slider from "./Slider/Slider";
 import WittySpinner from "./WittySpinner/WittySpinner";
 import Text from "./Text/Text";
-export { Collapse, ConfirmationModal, Drawer, Modal, QuantityStepper, ResponsiveRow, Select, Slider, Text, WittySpinner, };
+import Card from "./Card/Card";
+export { Card, Collapse, ConfirmationModal, Drawer, Modal, QuantityStepper, ResponsiveRow, Select, Slider, Text, WittySpinner, };

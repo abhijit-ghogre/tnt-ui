@@ -10,6 +10,7 @@ import Collapse from "../components/Collapse/Collapse";
 import WittySpinner from "../components/WittySpinner/WittySpinner";
 import QuantityStepper from "../components/QuantityStepper/QuantityStepper";
 import Slider from "../components/Slider/Slider";
+import Card from "../components/Card/Card";
 
 export default function Home() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -36,6 +37,7 @@ export default function Home() {
         onOverlayClick={() => setIsDrawerVisible(false)}
       >
         <div className="space-y-8 p-2">
+          <Card>Card content</Card>
           <QuantityStepper
             onChange={(value) => {
               setQuantity(value);

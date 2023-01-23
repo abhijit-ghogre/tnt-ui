@@ -53,4 +53,5 @@ Components:
 - [X] WittySpinner
 - [X] QuantityStepper
 - [X] Carousal
+- [ ] Card
 - [ ] YT Video
