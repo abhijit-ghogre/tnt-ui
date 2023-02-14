@@ -7,6 +7,7 @@ interface Props {
   children?: React.ReactNode;
   sideContent: React.ReactNode;
   end?: boolean;
+  disablePortal?: boolean;
 }
 
 function Drawer(props: Props) {
@@ -16,6 +17,7 @@ function Drawer(props: Props) {
     children = null,
     sideContent,
     end = false,
+    disablePortal = false,
   } = props;
 
   const ref = useRef<Element | null>(null);
@@ -26,32 +28,35 @@ function Drawer(props: Props) {
     setMounted(true);
   }, []);
 
-  return mounted && ref.current
-    ? createPortal(
+  const drawer = () => (
+    <div
+      className={`drawer fixed top-0 left-0 w-full h-full ${
+        end ? "drawer-end" : ""
+      }`}
+    >
+      <input
+        type="checkbox"
+        className="drawer-toggle"
+        checked={isVisible}
+        readOnly
+      />
+      <div className="drawer-content">{children}</div>
+      <div className="drawer-side">
         <div
-          className={`drawer fixed top-0 left-0 w-full h-full ${
-            end ? "drawer-end" : ""
-          }`}
-        >
-          <input
-            type="checkbox"
-            className="drawer-toggle"
-            checked={isVisible}
-            readOnly
-          />
-          <div className="drawer-content">{children}</div>
-          <div className="drawer-side">
-            <div
-              role="presentation"
-              className="drawer-overlay"
-              onClick={onOverlayClick}
-            />
-            <div className="w-80 bg-base-100">{sideContent}</div>
-          </div>
-        </div>,
-        document.body
-      )
-    : null;
+          role="presentation"
+          className="drawer-overlay"
+          onClick={onOverlayClick}
+        />
+        <div className="w-80 bg-base-100">{sideContent}</div>
+      </div>
+    </div>
+  );
+
+  if (disablePortal) {
+    return <>{drawer()}</>;
+  }
+
+  return mounted && ref.current ? createPortal(drawer(), document.body) : null;
 }
 
 export default Drawer;
