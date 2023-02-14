@@ -18,3 +18,17 @@ Default.args = {
   sideContent: <div>Side Content</div>,
   onOverlayClick: () => {},
 };
+
+export const PortalDisabled: ComponentStory<typeof Drawer> = (args) => {
+  const { children } = args;
+  return <Drawer {...args}>{children}</Drawer>;
+};
+
+PortalDisabled.args = {
+  isVisible: true,
+  children: "Page contents",
+  end: false,
+  sideContent: <div>Side Content</div>,
+  onOverlayClick: () => {},
+  disablePortal: true,
+};
