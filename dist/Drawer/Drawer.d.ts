@@ -5,6 +5,7 @@ interface Props {
     children?: React.ReactNode;
     sideContent: React.ReactNode;
     end?: boolean;
+    disablePortal?: boolean;
 }
-declare function Drawer(props: Props): JSX.Element;
+declare function Drawer(props: Props): JSX.Element | null;
 export default Drawer;
