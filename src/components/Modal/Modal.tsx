@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Text from "../Text/Text";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
   body: React.ReactNode;
   confirmText?: React.ReactNode;
   cancelText?: React.ReactNode;
+  disablePortal?: boolean;
 }
 
 function Modal(props: Props) {
@@ -18,13 +20,22 @@ function Modal(props: Props) {
     body,
     confirmText = "OK",
     cancelText = "Cancel",
+    disablePortal = false,
   } = props;
 
-  return (
+  const ref = useRef<Element | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    ref.current = document.querySelector<HTMLElement>("body");
+    setMounted(true);
+  }, []);
+
+  const modal = () => (
     <div
-      className={`modal modal-bottom sm:modal-middle 
-      ${isVisible ? "modal-open" : ""}
-    `}
+      className={`modal modal-bottom sm:modal-middle ${
+        isVisible ? "modal-open" : ""
+      }`}
     >
       <div className="modal-box">
         <button
@@ -58,6 +69,12 @@ function Modal(props: Props) {
       </div>
     </div>
   );
+
+  if (disablePortal) {
+    return <>{modal()}</>;
+  }
+
+  return mounted && ref.current ? createPortal(modal(), document.body) : null;
 }
 
 export default Modal;

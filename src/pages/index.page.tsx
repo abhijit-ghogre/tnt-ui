@@ -179,6 +179,19 @@ export default function Home() {
           </div>
 
           <div>
+            <button className="btn" onClick={() => setIsModalVisible(true)}>
+              Modal without Poratl
+            </button>
+            <Modal
+              isVisible={isModalVisible}
+              onClose={() => setIsModalVisible(false)}
+              disablePortal
+              title="This is a modal without portal"
+              body="This is the body of the modal. And this is a very long text to test the modal. This is the body of the modal. And this is a very long text to test the modal."
+            />
+          </div>
+
+          <div>
             <button
               className="btn"
               onClick={() => setIsConfirmationModalVisible(true)}
