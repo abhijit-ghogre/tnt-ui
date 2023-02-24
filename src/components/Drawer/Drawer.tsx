@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface Props {
   isVisible: boolean;
@@ -6,6 +7,7 @@ interface Props {
   children?: React.ReactNode;
   sideContent: React.ReactNode;
   end?: boolean;
+  disablePortal?: boolean;
 }
 
 function Drawer(props: Props) {
@@ -15,13 +17,22 @@ function Drawer(props: Props) {
     children = null,
     sideContent,
     end = false,
+    disablePortal = false,
   } = props;
-  return (
+
+  const ref = useRef<Element | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    ref.current = document.querySelector<HTMLElement>("body");
+    setMounted(true);
+  }, []);
+
+  const drawer = () => (
     <div
-      className={`
-        drawer fixed top-0 left-0 w-full h-full
-        ${end ? "drawer-end" : ""} 
-    `}
+      className={`drawer fixed top-0 left-0 w-full h-full ${
+        end ? "drawer-end" : ""
+      }`}
     >
       <input
         type="checkbox"
@@ -40,6 +51,12 @@ function Drawer(props: Props) {
       </div>
     </div>
   );
+
+  if (disablePortal) {
+    return <>{drawer()}</>;
+  }
+
+  return mounted && ref.current ? createPortal(drawer(), document.body) : null;
 }
 
 export default Drawer;
